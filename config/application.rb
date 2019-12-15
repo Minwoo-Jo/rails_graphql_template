@@ -2,6 +2,7 @@ require_relative 'boot'
 
 require "rails"
 # Pick the frameworks you want:
+require "sprockets/railtie"
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -10,9 +11,12 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-# require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
+# when sprockets/railtie error
+# do
+# mkdir -p app/assets/config && echo '{}' > app/assets/config/manifest.js
+#
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
